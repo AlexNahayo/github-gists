@@ -30,6 +30,7 @@ jobs:
         run: npx playwright test
         env:
           GITHUB_TOKEN: ${{ secrets.GIST_API_TOKEN }}
+          BASE_URL: ${{ vars.BASE_URL }}
 
       - name: Upload Playwright Report
         if: always()
