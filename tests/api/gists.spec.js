@@ -77,6 +77,10 @@ test.describe("POST /gists - Create gist", () => {
     test("rejects creating gist without authentication token", async ({ request }) => {
 
         const response = await request.post("/gists", {
+            headers: {
+                Accept: "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28"
+            },
             data: gistPayload.createPrivateGist()
         });
 
