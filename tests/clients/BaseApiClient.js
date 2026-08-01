@@ -13,17 +13,24 @@
  * to interact with individual endpoints.
  */
 export class BaseApiClient {
+
     constructor(request, token) {
         this.request = request;
         this.token = token;
     }
 
     get headers() {
-        return {
-            Authorization: `Bearer ${this.token}`,
+
+        const headers = {
             Accept: "application/vnd.github+json",
             'X-GitHub-Api-Version': '2026-03-10'
         };
+
+        if (this.token) {
+            headers.Authorization = `Bearer ${this.token}`;
+        }
+
+        return headers;
     }
 
     async get(endpoint, options = {}) {
