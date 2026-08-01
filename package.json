@@ -12,5 +12,9 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.62.0"
+  },
+  "dependencies": {
+    "playwright": "^1.62.0",
+    "playwright-core": "^1.62.0"
   }
 }
