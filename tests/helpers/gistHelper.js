@@ -4,7 +4,6 @@
  * @param {string} gistId - The ID of the gist to delete.
  */
 export async function deleteTestGist(gistClient, gistId) {
-
     if (!gistId) {
         return;
     }
@@ -16,5 +15,4 @@ export async function deleteTestGist(gistClient, gistId) {
             `Failed cleanup for gist ${gistId}. Status: ${response.status()}`
         );
     }
-
 }

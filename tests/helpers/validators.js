@@ -8,19 +8,16 @@ import { expect } from "@playwright/test";
  * @returns {boolean} - Returns true if the data is valid, false otherwise.
  */
 export function validateSchema(data, schema) {
-
     const ajv = new Ajv({
         allErrors: true
     });
 
     const validate = ajv.compile(schema);
-
     const valid = validate(data);
 
     if (!valid) {
         console.log(validate.errors);
     }
-
     return valid;
 }
 
@@ -30,7 +27,6 @@ export function validateSchema(data, schema) {
  * @returns {boolean} - Returns true if the response is valid, false otherwise.
  */
 export function validateCommonHeaders(response) {
-
     const headers = response.headers();
 
     expect(headers["content-type"])
@@ -38,6 +34,5 @@ export function validateCommonHeaders(response) {
 
     expect(headers["x-github-media-type"])
         .toBeTruthy();
-
 }
 

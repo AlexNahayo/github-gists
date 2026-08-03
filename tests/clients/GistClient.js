@@ -23,12 +23,10 @@ export class GistClient extends BaseApiClient {
      * @param {object} headers - Optional headers parameters
      */
     async getGists(params = {}, headers = {}) {
-
         return await this.get("/gists", {
             params,
             headers
         });
-
     }
 
     /**
@@ -38,11 +36,9 @@ export class GistClient extends BaseApiClient {
      * @param {Object} headers - Optional request headers
      */
     async getGist(id, headers = {}) {
-
         return await this.get(`/gists/${id}`, {
             headers
         });
-
     }
 
     /**
