@@ -69,7 +69,7 @@ test.describe("POST /gists - Create gist", () => {
 
     });
 
-    test("rejects creating gist without authentication token", async ({ unauthenticatedGistClient }) => {
+    test("rejects creating gist without authorization header", async ({ unauthenticatedGistClient }) => {
 
         const response = await unauthenticatedGistClient.create(
             gistPayload.createPrivateGist()
@@ -225,7 +225,7 @@ test.describe("GET /gists/{id} - Retrieve single gist", () => {
 
     });
 
-    test("rejects retrieving gist without valid authentication", async ({ gistClient, invalidAuthGistClient }) => {
+    test("rejects retrieving gist with valid authorization header", async ({ gistClient, invalidAuthGistClient }) => {
 
         let gistId;
 
@@ -309,7 +309,7 @@ test.describe("PATCH /gists/{id} - Update gist", () => {
         expect(response.status()).toBe(404);
     });
 
-    test("rejects updating gist without authentication", async ({ gistClient, unauthenticatedGistClient }) => {
+    test("rejects updating gist without authorization header", async ({ gistClient, unauthenticatedGistClient }) => {
 
         let gistId;
 
@@ -401,7 +401,7 @@ test.describe("DELETE /gists/{id} - Delete gist", () => {
 
     });
 
-    test("rejects deleting gist without authentication", async ({ gistClient, unauthenticatedGistClient }) => {
+    test("rejects deleting gist without authorization header", async ({ gistClient, unauthenticatedGistClient }) => {
 
         let gistId;
 
